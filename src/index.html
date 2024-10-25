@@ -1,7 +1,11 @@
-@@include('modules/_head.html')@@
+@@include('modules/_head.html', { title: 'Fictional Movie Search' })@@
 
 @@include('modules/_page_header.html')@@
 
-@@include('utils/_image.html', { img: 'some_image', class: 'some_image_class' })@@
+<main>
+  @@include('modules/_movie_search.html')@@
+</main>
+
+<!-- @@include('utils/_image.html', { img: 'some_image', class: 'some_image_class' })@@ -->
 
 @@include('modules/_page_footer.html')@@

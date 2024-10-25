@@ -8,6 +8,10 @@ import prettier from 'gulp-prettier';
 import autoprefixer from 'gulp-autoprefixer';
 import fileinclude from 'gulp-file-include';
 
+import browserSync from 'browser-sync';
+
+const browser = browserSync.create();
+
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 
@@ -85,7 +89,8 @@ const build =
       copy_js,
       copy_css,
       copy_samples,
-    )
+    ),
+    reload
   );
 
 function watch() {
@@ -94,6 +99,28 @@ function watch() {
   gulp.watch('./gulp/config.js', (cb) => cb("Can't hotswap the config file. Please restart the 'watch' task!"));
   gulp.series(gen_breakpoints, build)();
 }
+
+function sync() {
+    browser.init({
+        server: {
+            baseDir: config.paths.build
+        },
+        port: 3000,
+        startPath: 'index.html',
+    });
+}
+
+function reload(cb) {
+  if (browser.active) browser.reload();
+  cb()
+}
+
+const serve =
+  gulp.parallel(
+    watch,
+    sync
+  );
+
 
 export {
   clear_build,
@@ -106,6 +133,8 @@ export {
   copy_css,
   build,
   watch,
+  sync,
+  serve
 };
 
 // export default build;

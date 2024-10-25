@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "browser-sync": "^3.0.3",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean": "^0.4.0",

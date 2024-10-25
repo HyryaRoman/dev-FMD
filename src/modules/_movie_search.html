@@ -1,0 +1,48 @@
+
+<section class="movie-search">
+  <script src="assets/js/fetch-films.js" async></script>
+
+  <form class="movie-search-filters">
+
+    <div class="filter">
+      <label class="label" for="title-filter">Title:</label>
+      <input id="title-filter"/>
+    </div>
+
+    <div class="filter">
+      <h2 class="label">Category:</h2>
+      <div id="category-list"></div>
+    </div>
+
+    <div class="filter">
+      <h2 class="label">Price:</h2>
+      <label>
+        From:
+        <input type="number" name="from-price-filter" value="0"/>
+      </label>
+      <label>
+        To:
+        <input type="number" name="to-price-filter" value="100"/>
+      </label>
+    </div>
+
+    <div class="filter">
+      <h2 class="label">Length:</h2>
+      <label>
+        From:
+        <input type="number" name="from-length-filter" value="0"/>
+      </label>
+      <label>
+        To:
+        <input type="number" name="to-length-filter" value="100"/>
+      </label>
+    </div>
+
+    <div class="filter">
+      <h2 class="label">Rating:</h2>
+      <div id="rating-list"></div>
+    </div>
+
+  </form>
+
+</section>
