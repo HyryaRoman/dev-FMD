@@ -1,15 +1,83 @@
 .movie-search {
+  display: grid;
+  grid-template-columns: 350px 1fr;
   padding: 0;
-  width: 250px;
+  // width: 350px;
 
   &-filters {
-    background-color: #ffffff;
+    padding: 20px 20px;
+    min-height: 100vh;
+    background-color: #f8f8f8;
 
     .filter {
-      padding-bottom: 10px;
-      margin-bottom: 10px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
 
-      border-bottom: 1px solid #00000040;
+      &:not(:last-child) {
+        border-bottom: 1px solid #00000040;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #444;
+      }
+
+      .option {
+        display: block;
+        margin: 5px 0 5px 20px;
+      }
     }
+
+    .reset-btn {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &-results {
+    padding: 10px 20px;
+    font-size: 1.10rem;
+
+    table {
+      width: 100%;
+
+      border-collapse: collapse;
+
+      thead {
+        & > tr > th {
+          padding: 10px 5px 15px;
+          border-bottom: 1px solid #00000040;
+        }
+      }
+
+      tbody {
+        & > tr {
+          & > td {
+            padding: 15px 10px;
+          }
+
+          &:nth-child(odd) > td {
+            background-color: #ffffffff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.togglebox {
+  display: flex;
+  justify-items: space-between;
+
+  // .text {
+  //   display: inline-block;
+  // }
+
+  input {
+    display: inline-block;
+    margin-left: auto;
   }
 }

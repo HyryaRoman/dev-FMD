@@ -2,47 +2,68 @@
 <section class="movie-search">
   <script src="assets/js/fetch-films.js" async></script>
 
-  <form class="movie-search-filters">
+  <div class="movie-search-filters">
+    <form id="filters">
 
-    <div class="filter">
-      <label class="label" for="title-filter">Title:</label>
-      <input id="title-filter"/>
-    </div>
+      <div class="filter">
+        <label class="label" for="title-filter">Title:</label>
+        <input class="option" id="title-filter" name="title"/>
+      </div>
 
-    <div class="filter">
-      <h2 class="label">Category:</h2>
-      <div id="category-list"></div>
-    </div>
+      <div class="filter">
+        <h2 class="label">Category:</h2>
+        <div id="category-list"></div>
+      </div>
 
-    <div class="filter">
-      <h2 class="label">Price:</h2>
-      <label>
-        From:
-        <input type="number" name="from-price-filter" value="0"/>
-      </label>
-      <label>
-        To:
-        <input type="number" name="to-price-filter" value="100"/>
-      </label>
-    </div>
+      <div class="filter">
+        <h2 class="label">Price:</h2>
+        <label>
+          From:
+          <input class="option" type="number" name="price-from" value="0"/>
+        </label>
+        <label>
+          To:
+          <input class="option" type="number" name="price-to" value="100"/>
+        </label>
+      </div>
 
-    <div class="filter">
-      <h2 class="label">Length:</h2>
-      <label>
-        From:
-        <input type="number" name="from-length-filter" value="0"/>
-      </label>
-      <label>
-        To:
-        <input type="number" name="to-length-filter" value="100"/>
-      </label>
-    </div>
+      <div class="filter">
+        <h2 class="label">Length:</h2>
+        <label>
+          From:
+          <input class="option" type="number" name="length-from" value="0"/>
+        </label>
+        <label>
+          To:
+          <input class="option" type="number" name="length-to" value="100"/>
+        </label>
+      </div>
 
-    <div class="filter">
-      <h2 class="label">Rating:</h2>
-      <div id="rating-list"></div>
-    </div>
+      <div class="filter">
+        <h2 class="label">Rating:</h2>
+        <div id="rating-list"></div>
+      </div>
 
-  </form>
+      <button class="reset-btn" type="reset">Reset</button>
+    </form>
+  </div>
+
+  <div class="movie-search-results">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Length</th>
+          <th>Rating</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+
+      <tbody id="movie-search-results">
+      </tbody>
+    </table>
+  </div>
 
 </section>
