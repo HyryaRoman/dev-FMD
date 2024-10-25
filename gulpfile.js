@@ -3,6 +3,7 @@ import config from './gulp/config.js';
 import gulp from 'gulp';
 import clean from 'gulp-clean';
 import newer from 'gulp-newer';
+import filter from 'gulp-filter';
 import prettier from 'gulp-prettier';
 import autoprefixer from 'gulp-autoprefixer';
 import fileinclude from 'gulp-file-include';
@@ -36,8 +37,11 @@ function gen_sass_breakpoints() {
 const gen_breakpoints = gulp.parallel(gen_html_breakpoints, gen_sass_breakpoints);
 
 function build_html() {
+  const f = filter(config.paths.html.filter);
+
   return gulp.src(config.paths.html.src)
   .pipe(fileinclude(config.fileinclude))
+  .pipe(f)
   .pipe(prettier(config.prettier))
   .pipe(gulp.dest(config.paths.html.dest));
 }

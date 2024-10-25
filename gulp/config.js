@@ -178,6 +178,7 @@ function buildPaths() {
 
     res[name] = {
       src: file.ext.flatMap((e) => [base.source + file.src + '**/*' + e]),
+      filter: file.ext.flatMap((e) => [base.source + file.src + '**/*' + e, '!' + base.source + file.src + '**/_*' + e]),
       dest: base.build + file.dest,
     };
   }
