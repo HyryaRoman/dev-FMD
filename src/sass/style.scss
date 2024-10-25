@@ -1,0 +1,6 @@
+@use 'utils/_breakpoints' as *;
+@use 'utils/_background-image' as *;
+
+.test {
+  @include background-image('test');
+}

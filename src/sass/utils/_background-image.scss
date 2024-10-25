@@ -1,0 +1,9 @@
+@use 'utils/_breakpoints' as *;
+
+@mixin background-image($img) {
+  @each $breakpoint, $_ in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      background-image: url('assets/img/#{$img}/#{$breakpoint}.webp');
+    }
+  }
+}
