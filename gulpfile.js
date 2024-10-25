@@ -2,6 +2,7 @@ import config from './gulp/config.js';
 
 import gulp from 'gulp';
 import clean from 'gulp-clean';
+import newer from 'gulp-newer';
 import prettier from 'gulp-prettier';
 import autoprefixer from 'gulp-autoprefixer';
 import fileinclude from 'gulp-file-include';
@@ -54,15 +55,41 @@ function build_sass() {
   }));
 }
 
+function copy_js() {
+  return gulp.src(config.paths.js.src)
+  .pipe(prettier(config.prettier))
+  .pipe(gulp.dest(config.paths.js.dest))
+}
+
+function copy_css() {
+  return gulp.src(config.paths.css.src)
+  .pipe(prettier(config.prettier))
+  .pipe(gulp.dest(config.paths.css.dest))
+}
+
+function copy_samples() {
+  return gulp.src(config.paths.samples.src)
+  .pipe(gulp.dest(config.paths.samples.dest))
+}
+
 const build =
   gulp.series(
     clear_build,
-    gen_breakpoints,
     gulp.parallel(
       build_html,
-      build_sass
+      build_sass,
+      copy_js,
+      copy_css,
+      copy_samples,
     )
   );
+
+function watch() {
+  gulp.watch(config.paths.source, build);
+  gulp.watch(config.paths.templates, gulp.series(gen_breakpoints, build));
+  gulp.watch('./gulp/config.js', (cb) => cb("Can't hotswap the config file. Please restart the 'watch' task!"));
+  gulp.series(gen_breakpoints, build)();
+}
 
 export {
   clear_build,
@@ -71,7 +98,10 @@ export {
   gen_breakpoints,
   build_sass,
   build_html,
+  copy_js,
+  copy_css,
   build,
+  watch,
 };
 
 // export default build;

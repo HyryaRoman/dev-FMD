@@ -71,6 +71,18 @@ const files = {
     ext: ['.scss'],
   },
 
+  css: {
+    src: 'assets/css/',
+    dest: 'assets/css/',
+    ext: ['.css'],
+  },
+
+  samples: {
+    src: 'assets/samples/',
+    dest: 'assets/samples/',
+    ext: [''],
+  },
+
   html: {
     src: '',
     dest: '',

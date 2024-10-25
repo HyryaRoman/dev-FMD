@@ -5,6 +5,7 @@
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-file-include": "^2.3.0",
+    "gulp-newer": "^1.4.0",
     "gulp-prettier": "^6.0.0",
     "gulp-sass": "^5.1.0",
     "sass": "^1.79.5"
