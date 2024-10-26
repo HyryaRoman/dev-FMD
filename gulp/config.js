@@ -6,16 +6,21 @@ const breakpoints = [
   {
     "name": "mobile",
     "min": "none",
-    "max": "480px"
+    "max": "600px"
   },
   {
     "name": "tablet",
-    "min": "480px",
+    "min": "600px",
     "max": "1200px"
   },
   {
     "name": "desktop",
     "min": "1200px",
+    "max": "1600px"
+  },
+  {
+    "name": "desktop-wide",
+    "min": "1600px",
     "max": "none"
   }
 ];

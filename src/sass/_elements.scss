@@ -1,0 +1,385 @@
+@use 'colors' as *;
+
+a {
+  color: $secondary-100;
+  font-weight: 500;
+}
+
+b {
+  font-weight: 700;
+}
+
+ol {
+  list-style: decimal-leading-zero;
+  line-height: 1.5em;
+
+  &>li {
+    margin-left: 37px;
+
+    &::marker {
+      color: $secondary-300;
+      font-weight: 500;
+    }
+  }
+}
+
+ul {
+  $marker-size: 8px;
+  line-height: 1.5em;
+
+  &>li {
+    margin-left: 10px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: $marker-size;
+      height: $marker-size;
+      margin-bottom: 1px;
+      margin-right: 10px;
+
+      // border-radius: calc($marker-size / 3);
+      border: 2px solid $secondary-300;
+
+      transform: scaleX(0.75) rotate(45deg);
+      // background-color: $secondary-dim;
+    }
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+:root {
+  --input-color: #{$neutral-700};
+  --input-hover: #{$neutral-800};
+  --input-active: #{$neutral-500};
+}
+
+.primary {
+  --input-color: #{$primary-500};
+  --input-hover: #{$primary-700};
+  --input-active: #{$primary-300};
+}
+
+.secondary {
+  --input-color: #{$secondary-500};
+  --input-hover: #{$secondary-700};
+  --input-active: #{$secondary-300};
+}
+
+.tertiary {
+  --input-color: #{$tertiary-500};
+  --input-hover: #{$tertiary-700};
+  --input-active: #{$tertiary-300};
+}
+
+button,
+.btn {
+  --btn-color: var(--input-color);
+
+  display: block;
+  width: 100%;
+  padding: 15px 30px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: var(--btn-color);
+  text-align: left;
+  font-weight: 500;
+
+  transition: background-color 200ms ease;
+
+  &:hover {
+    --btn-color: var(--input-hover);
+  }
+
+  &:active {
+    --btn-color: var(--input-active);
+  }
+
+  &.outline {
+    $border-size: 2px;
+
+    padding: (15px - $border-size) (30px - $border-size);
+
+    border: $border-size solid var(--btn-color);
+    background-color: transparent;
+
+    transition: border-color 200ms ease;
+  }
+
+  &.inline {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+  }
+}
+
+
+.form {
+  & > * {
+    margin-bottom: 15px;
+  }
+
+  &-input {
+    & > .form-label {
+      display: block;
+      margin-bottom: 4px;
+
+      font-size: 0.9em;
+
+      &:after {
+        content: ':';
+      }
+    }
+  }
+
+  &-check {
+    margin-bottom: 15px;
+  }
+}
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+.text-input {
+  --input-color: #{$neutral-700};
+  --input-hover: #{$neutral-800};
+
+  --control-color: var(--input-color);
+
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+
+  background-color: $input-bg;
+  color: $neutral-200;
+
+  border: none;
+  border-bottom: 2px solid var(--control-color);
+  transition: border-color 200ms ease;
+
+  outline: none;
+
+  &:hover {
+    --control-color: var(--input-hover);
+  }
+
+  &:focus-within {
+    --control-color: var(--input-active);
+  }
+}
+
+:not(.toggle) > input[type="checkbox"],
+:not(.toggle) > .checkbox {
+  --input-color: #{$input-bg};
+  --input-hover: #{$neutral-800};
+
+  --bg-color: var(--input-color);
+
+  appearance: none;
+
+  position: relative;
+
+  display: inline-block;
+  margin-right: 5px;
+
+  width: 1.0em;
+  height: 1.0em;
+
+  background: var(--bg-color);
+
+  transform: translateY(0.125em);
+
+  &:hover {
+    --bg-color: var(--input-hover);
+  }
+
+  &:checked,
+  &.checked {
+    // --bg-color: var(--input-active);
+
+    &:after {
+      $marker-size: 8px;
+
+      content: '';
+      position: absolute;
+      left: 0.25em;
+      right: 0.25em;
+      top: 0.25em;
+      bottom: 0.25em;
+      display: block;
+      width: $marker-size;
+      height: $marker-size;
+      margin-bottom: 1px;
+      margin-right: 10px;
+
+      transform: rotate(45deg);
+      background-color: var(--input-active);
+    }
+  }
+}
+
+:not(.toggle) > input[type="radio"],
+:not(.toggle) > .radio {
+  --input-color: #{$input-bg};
+  --input-hover: #{$neutral-900};
+
+  --bg-color: var(--input-color);
+
+  appearance: none;
+
+  position: relative;
+
+  display: inline-block;
+  margin-right: 5px;
+
+  width: 1.0em;
+  height: 1.0em;
+
+  background: var(--bg-color);
+  border-radius: 100%;
+
+  transform: translateY(0.125em);
+
+  &:hover {
+    --bg-color: var(--input-hover);
+  }
+
+  &:checked,
+  &.checked {
+    // --bg-color: var(--input-active);
+
+    &:after {
+      $marker-size: 8px;
+
+      content: '';
+      position: absolute;
+      left: 0.25em;
+      right: 0.25em;
+      top: 0.25em;
+      bottom: 0.25em;
+      display: block;
+      width: $marker-size;
+      height: $marker-size;
+      margin-bottom: 1px;
+      margin-right: 10px;
+
+      transform: rotate(45deg);
+      background-color: var(--input-active);
+    }
+  }
+}
+
+.toggle {
+  // --input-color: #{$input-bg};
+  // --input-hover: #{$input-bg-hover};
+
+  --toggle-color: var(--input-color);
+  --display-check: none;
+
+  input[type="checkbox"],
+  input[type="radio"],
+  .checkbox,
+  .radio {
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+
+  :is(label, .label):hover {
+    --toggle-color: var(--input-hover);
+    cursor: pointer;
+  }
+
+  &:has(:is(input[type="checkbox"], input[type="radio"], .checkbox, .radio):is(:checked, .checked)) {
+    --toggle-color: var(--input-active);
+    --display-check: block;
+  }
+
+  label,
+  .label {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: var(--toggle-color);
+    text-align: left;
+    font-weight: 500;
+
+    transition: background-color 200ms ease;
+
+    &:after {
+      content: 'x';
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      bottom: 15px;
+      display: var(--display-check);
+    }
+  }
+
+  &.outline {
+    label,
+    .label {
+      $border-size: 2px;
+
+      padding: (15px - $border-size) (30px - $border-size);
+
+      border: $border-size solid var(--toggle-color);
+      background-color: transparent;
+
+      transition: border-color 200ms ease;
+    }
+  }
+
+  &.inline {
+    display: inline-block;
+
+    label,
+    .label {
+      display: inline-block;
+      width: auto;
+      text-align: center;
+    }
+  }
+}

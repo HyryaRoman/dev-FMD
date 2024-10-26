@@ -1,4 +1,6 @@
-* {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,4 +23,20 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+button:hover {
+  cursor: pointer;
 }

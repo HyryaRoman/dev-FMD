@@ -1,0 +1,77 @@
+@use 'colors' as *;
+@use "sass:map";
+@use 'utils/breakpoints' as *;
+
+.markup {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0px;
+
+  @include media-breakpoint-up(tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  @include media-breakpoint-up(desktop) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  @include media-breakpoint-up(desktop-wide) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+  }
+
+  &-block {
+    padding: 20px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #00000088;
+
+    background-color: $neutral-900;
+    color: $neutral-200;
+
+    & > * {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    & > .title {
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+
+      border-bottom: 1px solid #00000088;
+    }
+  }
+
+
+  .color-row {
+    .swatches {
+      display: flex;
+
+      & > * {
+        height: 2rem;
+        flex-grow: 1;
+      }
+
+      @for $shade from 1 through 9 {
+        &.primary > .shade-#{$shade}00 {
+          background-color: map.get($primary, "#{$shade}00");
+        }
+
+        &.secondary > .shade-#{$shade}00 {
+          background-color: map.get($secondary, "#{$shade}00");
+        }
+
+        &.tertiary > .shade-#{$shade}00 {
+          background-color: map.get($tertiary, "#{$shade}00");
+        }
+
+        &.neutral > .shade-#{$shade}00 {
+          background-color: map.get($neutral, "#{$shade}00");
+        }
+      }
+    }
+  }
+}

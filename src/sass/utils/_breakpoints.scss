@@ -3,24 +3,31 @@
 $breakpoints: (
   "mobile": (
     "min": null,
-    "max": 480px,
+    "max": 600px,
     "up": null,
-    "down": "(max-width: 479.98px)",
-    "exact": "(max-width: 479.98px)"
+    "down": "(max-width: 599.98px)",
+    "exact": "(max-width: 599.98px)"
   ),
   "tablet": (
-    "min": 480px,
+    "min": 600px,
     "max": 1200px,
-    "up": "(min-width: 480px)",
+    "up": "(min-width: 600px)",
     "down": "(max-width: 1199.98px)",
-    "exact": "(min-width: 480px) and (max-width: 1199.98px)"
+    "exact": "(min-width: 600px) and (max-width: 1199.98px)"
   ),
   "desktop": (
     "min": 1200px,
-    "max": null,
+    "max": 1600px,
     "up": "(min-width: 1200px)",
+    "down": "(max-width: 1599.98px)",
+    "exact": "(min-width: 1200px) and (max-width: 1599.98px)"
+  ),
+  "desktop-wide": (
+    "min": 1600px,
+    "max": null,
+    "up": "(min-width: 1600px)",
     "down": null,
-    "exact": "(min-width: 1200px)"
+    "exact": "(min-width: 1600px)"
   )
 );
 

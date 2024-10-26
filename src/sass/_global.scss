@@ -1,6 +1,11 @@
+@use 'colors' as *;
+
 body {
-  background-color: #222222;
-  color: #dddddd;
+  background-color: $neutral-100;
+  color: $neutral-900;
+
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
 }
 
 main {
@@ -8,10 +13,16 @@ main {
   // padding: 25px 25px;
   min-height: 100vh;
   max-width: 1800px;
-  background-color: #eeeeee;
-  color: #222222;
 
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
+  // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
+}
+
+section {
+  padding: 20px 10px;
+
+  & > .title {
+    margin-bottom: 20px;
+  }
 }
 
 .top-link {

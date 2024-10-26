@@ -1,0 +1,84 @@
+@use "sass:map";
+
+$primary: (
+  "100": #53817d,
+  "300": #56b19a,
+  "500": #7bddb4,
+  "700": #a4f9c7,
+  "900": #d0ffdc,
+);
+
+$secondary: (
+  "100": #8f5b4a,
+  "300": #c57e4b,
+  "500": #ebab52,
+  "700": #f7d160,
+  "900": #fbf4af,
+);
+
+$tertiary: (
+  "100": #713e5c,
+  "300": #b54e79,
+  "500": #e97390,
+  "700": #ff969e,
+  "900": #ffc3be,
+);
+
+$neutral: (
+  "100": #1f222d,
+  "200": #31343c,
+  "300": #4a4b51,
+  "400": #6a6a6a,
+  "500": #848484,
+  "600": #9e9e9e,
+  "700": #b9b9b9,
+  "800": #d5d5d5,
+  "900": #f1f1f1,
+);
+
+@function primary-shade($shade) {
+  @return map.get($primary, $shade);
+}
+
+@function secondary-shade($shade) {
+  @return map.get($secondary, $shade);
+}
+
+@function tertiary-shade($shade) {
+  @return map.get($tertiary, $shade);
+}
+
+@function neutral-shade($shade) {
+  @return map.get($neutral, $shade);
+}
+
+$primary-100: primary-shade("100");
+$primary-300: primary-shade("300");
+$primary-500: primary-shade("500");
+$primary-700: primary-shade("700");
+$primary-900: primary-shade("900");
+
+$secondary-100: secondary-shade("100");
+$secondary-300: secondary-shade("300");
+$secondary-500: secondary-shade("500");
+$secondary-700: secondary-shade("700");
+$secondary-900: secondary-shade("900");
+
+$tertiary-100: tertiary-shade("100");
+$tertiary-300: tertiary-shade("300");
+$tertiary-500: tertiary-shade("500");
+$tertiary-700: tertiary-shade("700");
+$tertiary-900: tertiary-shade("900");
+
+$neutral-100: neutral-shade("100");
+$neutral-200: neutral-shade("200");
+$neutral-300: neutral-shade("300");
+$neutral-400: neutral-shade("400");
+$neutral-500: neutral-shade("500");
+$neutral-600: neutral-shade("600");
+$neutral-700: neutral-shade("700");
+$neutral-800: neutral-shade("800");
+$neutral-900: neutral-shade("900");
+
+$input-bg: #ffffffa0;
+$input-bg-hover: #ffffffff;
