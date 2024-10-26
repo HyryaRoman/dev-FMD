@@ -88,6 +88,12 @@ const files = {
     ext: [''],
   },
 
+  icons: {
+    src: 'assets/icons/',
+    dest: 'assets/icons/',
+    ext: ['.svg'],
+  },
+
   html: {
     src: '',
     dest: '',

@@ -80,6 +80,13 @@ function copy_samples() {
   .pipe(gulp.dest(config.paths.samples.dest))
 }
 
+function copy_icons() {
+  console.log(config.paths.icons.src);
+  return gulp.src(config.paths.icons.src)
+  // .pipe(prettier(config.prettier))
+  .pipe(gulp.dest(config.paths.icons.dest))
+}
+
 const build =
   gulp.series(
     clear_build,
@@ -89,6 +96,7 @@ const build =
       copy_js,
       copy_css,
       copy_samples,
+      copy_icons,
     ),
     reload
   );
@@ -131,6 +139,7 @@ export {
   build_html,
   copy_js,
   copy_css,
+  copy_icons,
   build,
   watch,
   sync,
