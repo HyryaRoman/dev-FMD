@@ -63,6 +63,13 @@ function build_sass() {
   }));
 }
 
+// In future, images should be autoresized and converted
+// For now, we just copy them
+function build_img() {
+  return gulp.src(config.paths.img.src, { encoding: false })
+  .pipe(gulp.dest(config.paths.img.dest))
+}
+
 function copy_js() {
   return gulp.src(config.paths.js.src)
   .pipe(prettier(config.prettier))
@@ -81,9 +88,7 @@ function copy_samples() {
 }
 
 function copy_icons() {
-  console.log(config.paths.icons.src);
   return gulp.src(config.paths.icons.src)
-  // .pipe(prettier(config.prettier))
   .pipe(gulp.dest(config.paths.icons.dest))
 }
 
@@ -93,6 +98,7 @@ const build =
     gulp.parallel(
       build_html,
       build_sass,
+      build_img,
       copy_js,
       copy_css,
       copy_samples,
@@ -137,6 +143,7 @@ export {
   gen_breakpoints,
   build_sass,
   build_html,
+  build_img,
   copy_js,
   copy_css,
   copy_icons,

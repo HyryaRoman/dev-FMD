@@ -55,7 +55,7 @@ const files = {
   img: {
     src: 'assets/img/',
     dest: 'assets/img/',
-    ext: ['.png', '.jpg', '.jpeg'],
+    ext: ['.png', '.jpg', '.jpeg', '.webp'],
   },
 
   js: {

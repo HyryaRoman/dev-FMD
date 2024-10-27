@@ -9,7 +9,13 @@ b {
   font-weight: 700;
 }
 
-ol {
+ol, ul {
+  &>li:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
+
+ol.ordered-list {
   list-style: decimal-leading-zero;
   line-height: 1.5em;
 
@@ -23,7 +29,7 @@ ol {
   }
 }
 
-ul {
+ul.unordered-list {
   $marker-size: 8px;
   line-height: 1.5em;
 
@@ -72,27 +78,36 @@ h6 {
 }
 
 :root {
-  --input-color: #{$neutral-700};
-  --input-hover: #{$neutral-800};
-  --input-active: #{$neutral-500};
+  --base-input-color: #{$neutral-800};
+  --base-input-hover: #{$neutral-700};
+  --base-input-active: #{$neutral-500};
+  --base-input-text: #{$neutral-100};
+
+  --input-color: var(--base-input-color);
+  --input-hover: var(--base-input-hover);
+  --input-active: var(--base-input-active);
+  --input-text: var(--base-input-text);
 }
 
 .primary {
   --input-color: #{$primary-500};
   --input-hover: #{$primary-700};
   --input-active: #{$primary-300};
+  --input-text: #{$neutral-100};
 }
 
 .secondary {
   --input-color: #{$secondary-500};
   --input-hover: #{$secondary-700};
   --input-active: #{$secondary-300};
+  --input-text: #{$neutral-100};
 }
 
 .tertiary {
   --input-color: #{$tertiary-500};
   --input-hover: #{$tertiary-700};
   --input-active: #{$tertiary-300};
+  --input-text: #{$neutral-100};
 }
 
 button,
@@ -107,6 +122,7 @@ button,
   border-radius: 10px;
 
   background-color: var(--btn-color);
+  color: var(--input-text);
   text-align: left;
   font-weight: 500;
 
@@ -186,7 +202,7 @@ input:not([type]),
   padding: 10px 20px;
 
   background-color: $input-bg;
-  color: $neutral-200;
+  color: var(--input-text);
 
   border: none;
   border-bottom: 2px solid var(--control-color);
@@ -221,6 +237,7 @@ input:not([type]),
   height: 1.0em;
 
   background-color: var(--bg-color);
+  color: var(--input-text);
 
   transform: translateY(0.125em);
 
@@ -265,6 +282,7 @@ input:not([type]),
   height: 1.0em;
 
   background: var(--bg-color);
+  color: var(--input-text);
   border-radius: 100%;
 
   transform: translateY(0.125em);
@@ -296,7 +314,8 @@ input:not([type]),
   // --input-color: #{$input-bg};
   // --input-hover: #{$input-bg-hover};
 
-  --toggle-color: var(--input-color);
+  --toggle-color: var(--base-input-color);
+  --toggle-color-hover: var(--base-input-hover);
   --display-check: none;
 
   input[type="checkbox"],
@@ -311,12 +330,13 @@ input:not([type]),
   }
 
   :is(label, .label):hover {
-    --toggle-color: var(--input-hover);
+    --toggle-color: var(--toggle-color-hover);
     cursor: pointer;
   }
 
   &:has(:is(input[type="checkbox"], input[type="radio"], .checkbox, .radio):is(:checked, .checked)) {
-    --toggle-color: var(--input-active);
+    --toggle-color: var(--input-color);
+    --toggle-color-hover: var(--input-hover);
     --display-check: block;
   }
 
@@ -331,6 +351,7 @@ input:not([type]),
     border-radius: 10px;
 
     background-color: var(--toggle-color);
+    color: var(--input-text);
     text-align: left;
     font-weight: 500;
 

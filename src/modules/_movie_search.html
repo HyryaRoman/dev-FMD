@@ -2,48 +2,52 @@
   <script src="assets/js/fetch-films.js" async></script>
 
   <div class="movie-search-filters">
-    <form id="filters">
+    <form class="form" id="filters">
 
-      <div class="filter">
-        <label class="label" for="title-filter">Title:</label>
-        <input class="option" id="title-filter" name="title" />
+      <div class="form-input filter">
+        <label class="form-label label" for="title-search">Title</label>
+        <input class="form-control primary" id="title-search" name="title" type="text" placeholder="e.g. Chasing Fight">
       </div>
 
-      <div class="filter">
-        <h2 class="label">Category:</h2>
-        <div id="category-list"></div>
-      </div>
+      <fieldset class="filter">
+        <legend class="label">Category:</legend>
+        <ul id="category-list"></ul>
+      </fieldset>
 
-      <div class="filter">
-        <h2 class="label">Price:</h2>
-        <label>
-          From:
-          <input class="option" type="number" name="price-from" value="0" />
-        </label>
-        <label>
-          To:
-          <input class="option" type="number" name="price-to" value="100" />
-        </label>
-      </div>
+      <fieldset class="filter">
+        <legend class="label">Price ($):</legend>
 
-      <div class="filter">
-        <h2 class="label">Length:</h2>
-        <label>
-          From:
-          <input class="option" type="number" name="length-from" value="0" />
-        </label>
-        <label>
-          To:
-          <input class="option" type="number" name="length-to" value="100" />
-        </label>
-      </div>
+        <div class="form-input">
+          <label class="form-label" for="price-from">From</label>
+          <input class="form-control primary" id="price-from" name="price-from" type="number" step="0.1">
+        </div>
 
-      <div class="filter">
-        <h2 class="label">Rating:</h2>
-        <div id="rating-list"></div>
-      </div>
+        <div class="form-input">
+          <label class="form-label" for="price-to">To</label>
+          <input class="form-control primary" id="price-to" name="price-to" type="number" step="0.1">
+        </div>
+      </fieldset>
 
-      <button class="reset-btn" type="reset">Reset</button>
+      <fieldset class="filter">
+        <legend class="label">Length (minutes):</legend>
+
+        <div class="form-input">
+          <label class="form-label" for="length-from">From</label>
+          <input class="form-control primary" id="length-from" name="length-from" type="number">
+        </div>
+
+        <div class="form-input">
+          <label class="form-label" for="length-to">To</label>
+          <input class="form-control primary" id="length-to" name="length-to" type="number">
+        </div>
+      </fieldset>
+
+      <fieldset class="filter">
+        <legend class="label">Rating:</legend>
+        <ul id="rating-list"></ul>
+      </fieldset>
+
+      <button class="primary" type="reset">Reset</button>
     </form>
   </div>
 
