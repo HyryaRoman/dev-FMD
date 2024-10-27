@@ -140,12 +140,12 @@ button,
 
 
 .form {
-  & > * {
+  &>* {
     margin-bottom: 15px;
   }
 
   &-input {
-    & > .form-label {
+    &>.form-label {
       display: block;
       margin-bottom: 4px;
 
@@ -203,8 +203,8 @@ input:not([type]),
   }
 }
 
-:not(.toggle) > input[type="checkbox"],
-:not(.toggle) > .checkbox {
+:not(.toggle)>input[type="checkbox"],
+:not(.toggle)>.checkbox {
   --input-color: #{$input-bg};
   --input-hover: #{$neutral-800};
 
@@ -247,8 +247,8 @@ input:not([type]),
   }
 }
 
-:not(.toggle) > input[type="radio"],
-:not(.toggle) > .radio {
+:not(.toggle)>input[type="radio"],
+:not(.toggle)>.radio {
   --input-color: #{$input-bg};
   --input-hover: #{$neutral-900};
 
@@ -350,6 +350,7 @@ input:not([type]),
   }
 
   &.outline {
+
     label,
     .label {
       $border-size: 2px;

@@ -32,12 +32,12 @@
     background-color: $neutral-900;
     color: $neutral-200;
 
-    & > * {
+    &>* {
       display: block;
       margin-bottom: 10px;
     }
 
-    & > .title {
+    &>.title {
       padding-bottom: 15px;
       margin-bottom: 20px;
 
@@ -50,25 +50,25 @@
     .swatches {
       display: flex;
 
-      & > * {
+      &>* {
         height: 2rem;
         flex-grow: 1;
       }
 
       @for $shade from 1 through 9 {
-        &.primary > .shade-#{$shade}00 {
+        &.primary>.shade-#{$shade}00 {
           background-color: map.get($primary, "#{$shade}00");
         }
 
-        &.secondary > .shade-#{$shade}00 {
+        &.secondary>.shade-#{$shade}00 {
           background-color: map.get($secondary, "#{$shade}00");
         }
 
-        &.tertiary > .shade-#{$shade}00 {
+        &.tertiary>.shade-#{$shade}00 {
           background-color: map.get($tertiary, "#{$shade}00");
         }
 
-        &.neutral > .shade-#{$shade}00 {
+        &.neutral>.shade-#{$shade}00 {
           background-color: map.get($neutral, "#{$shade}00");
         }
       }
