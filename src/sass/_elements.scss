@@ -220,7 +220,7 @@ input:not([type]),
   width: 1.0em;
   height: 1.0em;
 
-  background: var(--bg-color);
+  background-color: var(--bg-color);
 
   transform: translateY(0.125em);
 
@@ -233,22 +233,16 @@ input:not([type]),
     // --bg-color: var(--input-active);
 
     &:after {
-      $marker-size: 8px;
-
       content: '';
       position: absolute;
-      left: 0.25em;
-      right: 0.25em;
-      top: 0.25em;
-      bottom: 0.25em;
-      display: block;
-      width: $marker-size;
-      height: $marker-size;
-      margin-bottom: 1px;
-      margin-right: 10px;
-
-      transform: rotate(45deg);
-      background-color: var(--input-active);
+      top: 0.1em;
+      right: 0.1em;
+      bottom: 0.1em;
+      left: 0.1em;
+      display: var(--display-check);
+      width: 0.8em;
+      height: 0.8em;
+      background: url('../icons/check.svg');
     }
   }
 }
@@ -284,22 +278,16 @@ input:not([type]),
     // --bg-color: var(--input-active);
 
     &:after {
-      $marker-size: 8px;
-
       content: '';
       position: absolute;
-      left: 0.25em;
-      right: 0.25em;
-      top: 0.25em;
-      bottom: 0.25em;
-      display: block;
-      width: $marker-size;
-      height: $marker-size;
-      margin-bottom: 1px;
-      margin-right: 10px;
-
-      transform: rotate(45deg);
-      background-color: var(--input-active);
+      top: 0.1em;
+      right: 0.1em;
+      bottom: 0.1em;
+      left: 0.1em;
+      display: var(--display-check);
+      width: 0.8em;
+      height: 0.8em;
+      background: url('../icons/check.svg');
     }
   }
 }
@@ -349,12 +337,15 @@ input:not([type]),
     transition: background-color 200ms ease;
 
     &:after {
-      content: 'x';
+      content: '';
       position: absolute;
-      top: 15px;
+      top: 16px;
       right: 20px;
-      bottom: 15px;
+      bottom: 14px;
       display: var(--display-check);
+      width: 1em;
+      height: 1em;
+      background: url('../icons/check.svg');
     }
   }
 
@@ -379,7 +370,6 @@ input:not([type]),
     .label {
       display: inline-block;
       width: auto;
-      text-align: center;
     }
   }
 }
